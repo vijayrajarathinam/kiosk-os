@@ -1,0 +1,54 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '4.0.0'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.kiosk'
+version = '0.0.1-SNAPSHOT'
+description = 'multitenent pos system by alphanso inc'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-mail-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-security-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-validation-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// JWT library for generating and validating tokens
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.3'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.3'
+
+	// payment gateway
+	implementation 'com.razorpay:razorpay-java:1.4.8'
+	implementation 'com.stripe:stripe-java:23.5.0'
+
+	// lombok
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testCompileOnly 'org.projectlombok:lombok' // Optional: for use in test source
+	testAnnotationProcessor 'org.projectlombok:lombok' // Optional: for use in test source
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
