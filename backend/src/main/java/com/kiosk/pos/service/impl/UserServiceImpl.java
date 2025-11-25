@@ -3,6 +3,7 @@ package com.kiosk.pos.service.impl;
 import com.kiosk.pos.Exception.UserException;
 import com.kiosk.pos.configuration.JWTProvider;
 import com.kiosk.pos.model.User;
+import com.kiosk.pos.payload.dto.UserDto;
 import com.kiosk.pos.repository.UserRepository;
 import com.kiosk.pos.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -52,5 +53,23 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public UserDto toDto(User user){
+        return UserDto.builder()
+                .email(user.getEmail())
+                .phone(user.getPhone())
+                .role(user.getRole())
+                .build();
+    }
+
+    @Override
+    public User fromDto(UserDto userDto){
+        return User.builder()
+                .email(userDto.getEmail())
+                .phone(userDto.getPhone())
+                .role(userDto.getRole())
+                .build();
     }
 }

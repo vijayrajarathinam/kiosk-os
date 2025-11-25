@@ -2,6 +2,7 @@ package com.kiosk.pos.service;
 
 import com.kiosk.pos.Exception.UserException;
 import com.kiosk.pos.model.User;
+import com.kiosk.pos.payload.dto.UserDto;
 
 import java.util.List;
 
@@ -11,4 +12,6 @@ public interface UserService {
     User getUserByEmail(String email) throws UserException;
     User getUserById(Long id) throws UserException;
     List<User> getAllUsers();
+    UserDto toDto(User user);
+    User fromDto(UserDto userDto);
 }

@@ -8,7 +8,6 @@ import com.kiosk.pos.payload.dto.UserDto;
 import com.kiosk.pos.payload.response.AuthResponse;
 import com.kiosk.pos.repository.UserRepository;
 import com.kiosk.pos.service.AuthService;
-import com.kiosk.pos.service.CustomUserImplementation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;

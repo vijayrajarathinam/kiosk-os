@@ -1,4 +1,4 @@
-package com.kiosk.pos.service;
+package com.kiosk.pos.service.impl;
 
 
 import com.kiosk.pos.model.User;
@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
